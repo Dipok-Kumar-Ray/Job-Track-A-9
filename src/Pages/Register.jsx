@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router";
 import { auth } from "../utils/firebase.init";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
 
@@ -33,7 +34,11 @@ const Register = () => {
             });
     }
   return (
-    <div className="max-w-sm mx-auto  p-9 rounded-2xl mt-9 shadow-lg bg-slate-200 mb-12">
+    <div>
+        <Helmet>
+            <title>Registration | JobsTrack</title>
+        </Helmet>
+        <div className="max-w-sm mx-auto  p-9 rounded-2xl mt-9 shadow-lg bg-slate-200 mb-12">
       <h2 className="text-3xl mb-9">Please Form Registration Now !</h2>
       <form className="space-y-4" onSubmit={handleRegister}>
         {/* name field */}
@@ -90,6 +95,7 @@ const Register = () => {
         </button>   
       </form>
       <p className="mt-3">Already have an account?  Please <Link to='/login' className=" text-blue-500 underline">  Login</Link></p>
+    </div>
     </div>
   );
 };
