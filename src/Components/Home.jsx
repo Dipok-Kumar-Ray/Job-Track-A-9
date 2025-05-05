@@ -1,8 +1,13 @@
 import React from 'react';
 import Hero from '../assets/Hero.jpg';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   return (
+    <div>
+        <Helmet>
+        <title>Home | JobsTrack</title>
+        </Helmet>
     <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen bg-gray-100 px-4 lg:px-16 py-10 gap-8">
       
       {/* Text Section */}
@@ -24,6 +29,7 @@ const Home = () => {
           className="w-full max-w-md lg:max-w-lg rounded-lg shadow-lg mx-auto"
         />
       </div>
+    </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router';
 import navIcons from "../assets/navIcon.jpg"
 import profileImg from "../assets/user.png"
+import { Helmet } from 'react-helmet';
 
 
 const Navbar = () => {
@@ -13,7 +14,12 @@ const Navbar = () => {
    </>
 
     return (
-     <div className='navbar bg-base-100 w-11/12 mx-auto'>
+
+ <div>
+<Helmet>
+  <title> Navbar | JobsTrack</title>
+</Helmet>
+<div className='navbar bg-base-100 w-11/12 mx-auto'>
 
 <div className="navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
@@ -44,6 +50,8 @@ const Navbar = () => {
       </div>
 
      </div>
+
+ </div>
     );
 };
 

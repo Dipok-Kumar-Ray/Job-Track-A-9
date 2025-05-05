@@ -8,6 +8,10 @@ import HomeLayout from './Pages/HomeLayout.jsx'
 import About from './Pages/About.jsx'
 import Home from './Components/Home.jsx'
 import Companies from './Components/Companies.jsx'
+import { HelmetProvider } from 'react-helmet-async'
+
+
+
 
 
 
@@ -39,6 +43,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}/>
+   <HelmetProvider>
+    <RouterProvider router={router} />
+   </HelmetProvider>
   </StrictMode>,
 )
