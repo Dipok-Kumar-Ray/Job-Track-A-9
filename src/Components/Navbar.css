@@ -1,0 +1,14 @@
+.active {
+    
+    font-weight: bold;
+    color: #0000FF; 
+    background-color: #D3D3D3;
+    border-radius: 5px; 
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #0000FF;
+    font-size: 1.2em;
+}

@@ -9,6 +9,9 @@ import About from './Pages/About.jsx'
 import Home from './Components/Home.jsx'
 import Companies from './Components/Companies.jsx'
 import { HelmetProvider } from 'react-helmet-async'
+import Login from './Pages/Login.jsx'
+import Register from './Pages/Register.jsx'
+import { ToastContainer } from 'react-toastify'
 
 
 
@@ -22,7 +25,7 @@ const router = createBrowserRouter([
     children:[
       {index:true, Component:HomeLayout},
       {
-        path:'/home',
+        path:'/',
         Component: Home,
       },
       {
@@ -37,6 +40,14 @@ const router = createBrowserRouter([
         path:'*',
         Component: ErrorPage,
       },
+      {
+        path:'/login',
+        Component: Login,
+      },
+      {
+        path:'/register',
+        Component: Register,
+      },
     ]
   },
 ])
@@ -45,6 +56,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
    <HelmetProvider>
     <RouterProvider router={router} />
+    <ToastContainer autoClose={3000} />
    </HelmetProvider>
   </StrictMode>,
 )

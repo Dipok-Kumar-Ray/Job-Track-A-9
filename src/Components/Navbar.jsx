@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import navIcons from "../assets/navIcon.jpg"
 import profileImg from "../assets/user.png"
 import { Helmet } from 'react-helmet';
+import  './Navbar.css'
 
 
 const Navbar = () => {
@@ -45,7 +46,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end  lg:flex gap-3">
          <img src={profileImg} alt="" />
-         <button className='btn btn-primary '>Login</button>
+         <Link to='/login'  className='btn btn-primary '>Login</Link>
         </div>
       </div>
 

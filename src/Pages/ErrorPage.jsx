@@ -9,7 +9,7 @@ const ErrorPage = () => {
             <div className='text-5xl text-center mb-5'>404 Not Found</div>
            
             <p className="text-red-600 text-lg font-semibold">⚠️ Error: Something went wrong. Please try again later.</p>
-           <Link to='/home' button className='btn btn-primary mt-5'>Back to home page</Link>
+           <Link to='/'  className='btn btn-primary mt-5'>Back to home page</Link>
         </div>
         </div>
     );
