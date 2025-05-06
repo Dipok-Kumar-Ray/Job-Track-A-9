@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import navIcons from "../assets/navIcon.jpg"
-// import profileImg from "../assets/user.png"
+import profileImg from "../assets/user.png"
 import { Helmet } from 'react-helmet';
 import  './Navbar.css'
 import { AuthContext } from '../Contexts/AuthContext';
@@ -30,7 +30,7 @@ const Navbar = () => {
 
     const links = 
     <>
-       <li><NavLink to='/home'>Home</NavLink></li>
+       <li><NavLink to='/'>Home</NavLink></li>
        <li><NavLink to='/companies'>Companies</NavLink></li>
         <li><NavLink to='/about'>About</NavLink></li>
    </>
@@ -66,14 +66,13 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end  lg:flex gap-3">
-          {/* <img src={profileImg} alt="" /> */}
+          <img src={profileImg} alt="" />
           {
-  user ? (
-    <button onClick={handleLogOut}>Log Out</button>
-  ) : (
-    <Link to='/login' className='btn btn-primary '>Login</Link>
-  )
-}
+         user ? (<button onClick={handleLogOut}>Log Out</button> ) : 
+         (
+         <Link to='/login' className='btn btn-primary '>Login</Link>
+           )
+          }
 
         </div>
       </div>

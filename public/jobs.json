@@ -1,0 +1,202 @@
+[
+  {
+    "id": "1",
+    "name": "TechSoft Ltd.",
+    "logo": "https://logo.clearbit.com/techsoft.com",
+    "location": "Dhaka, Bangladesh",
+    "website": "https://techsoft.com",
+    "industry": "Software Development",
+    "jobs": [
+      {
+        "id": "job-001",
+        "title": "Frontend Developer",
+        "bannerImage": "https://source.unsplash.com/featured/?frontend",
+        "location": "Remote",
+        "salary": "$1500 - $2500",
+        "jobType": "Full-time",
+        "description": "Develop modern frontend applications using React.",
+        "requirements": [
+          "HTML, CSS, JavaScript",
+          "Experience with React",
+          "REST APIs",
+          "Responsive Design"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "DataCore Analytics",
+    "logo": "https://logo.clearbit.com/datacore.com",
+    "location": "New York, USA",
+    "website": "https://datacore.com",
+    "industry": "Data Analytics",
+    "jobs": [
+      {
+        "id": "job-002",
+        "title": "Data Analyst",
+        "bannerImage": "https://source.unsplash.com/featured/?data",
+        "location": "New York",
+        "salary": "$3000 - $4500",
+        "jobType": "Full-time",
+        "description": "Analyze complex datasets to drive insights.",
+        "requirements": [
+          "SQL & Python",
+          "Excel & Power BI",
+          "Problem-solving",
+          "Strong Communication"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "InnoTech Solutions",
+    "logo": "https://logo.clearbit.com/innotech.com",
+    "location": "Berlin, Germany",
+    "website": "https://innotech.com",
+    "industry": "IT Services",
+    "jobs": [
+      {
+        "id": "job-003",
+        "title": "Backend Developer",
+        "bannerImage": "https://source.unsplash.com/featured/?backend",
+        "location": "Berlin",
+        "salary": "€2500 - €3500",
+        "jobType": "Full-time",
+        "description": "Build scalable backend services and APIs.",
+        "requirements": [
+          "Node.js or Django",
+          "MongoDB / PostgreSQL",
+          "Authentication & Authorization",
+          "Cloud Hosting"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "HealthLink",
+    "logo": "https://logo.clearbit.com/healthlink.com",
+    "location": "Toronto, Canada",
+    "website": "https://healthlink.com",
+    "industry": "Healthcare Technology",
+    "jobs": [
+      {
+        "id": "job-004",
+        "title": "UX/UI Designer",
+        "bannerImage": "https://source.unsplash.com/featured/?uxui",
+        "location": "Remote",
+        "salary": "CAD $3500 - $4500",
+        "jobType": "Part-time",
+        "description": "Design user-friendly interfaces for health apps.",
+        "requirements": [
+          "Figma or Adobe XD",
+          "User Research",
+          "Accessibility Standards",
+          "Mobile-first Design"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "EduSpark",
+    "logo": "https://logo.clearbit.com/eduspark.com",
+    "location": "Sydney, Australia",
+    "website": "https://eduspark.com",
+    "industry": "E-Learning",
+    "jobs": [
+      {
+        "id": "job-005",
+        "title": "Content Writer",
+        "bannerImage": "https://source.unsplash.com/featured/?content",
+        "location": "Remote",
+        "salary": "AUD $2000 - $3000",
+        "jobType": "Contract",
+        "description": "Create engaging educational content for students.",
+        "requirements": [
+          "Excellent Writing Skills",
+          "SEO Basics",
+          "Grammar & Editing",
+          "Research Skills"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "GreenTech Energy",
+    "logo": "https://logo.clearbit.com/greentech.com",
+    "location": "Copenhagen, Denmark",
+    "website": "https://greentech.com",
+    "industry": "Renewable Energy",
+    "jobs": [
+      {
+        "id": "job-006",
+        "title": "Project Manager",
+        "bannerImage": "https://source.unsplash.com/featured/?manager",
+        "location": "On-site",
+        "salary": "DKK 40,000 - 55,000",
+        "jobType": "Full-time",
+        "description": "Lead solar and wind energy projects.",
+        "requirements": [
+          "Project Management",
+          "Agile/Scrum",
+          "Communication",
+          "Technical Background"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "name": "CyberShield Inc.",
+    "logo": "https://logo.clearbit.com/cybershield.com",
+    "location": "Singapore",
+    "website": "https://cybershield.com",
+    "industry": "Cybersecurity",
+    "jobs": [
+      {
+        "id": "job-007",
+        "title": "Security Analyst",
+        "bannerImage": "https://source.unsplash.com/featured/?cybersecurity",
+        "location": "Singapore",
+        "salary": "$4000 - $6000",
+        "jobType": "Full-time",
+        "description": "Monitor systems and prevent cyber attacks.",
+        "requirements": [
+          "Network Security",
+          "Incident Response",
+          "Firewalls & IDS",
+          "SIEM Tools"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Finexa Finance",
+    "logo": "https://logo.clearbit.com/finexa.com",
+    "location": "Mumbai, India",
+    "website": "https://finexa.com",
+    "industry": "Fintech",
+    "jobs": [
+      {
+        "id": "job-008",
+        "title": "React Native Developer",
+        "bannerImage": "https://source.unsplash.com/featured/?mobileapp",
+        "location": "Mumbai / Hybrid",
+        "salary": "₹60,000 - ₹90,000",
+        "jobType": "Full-time",
+        "description": "Develop high-quality cross-platform apps.",
+        "requirements": [
+          "React Native",
+          "Redux",
+          "REST APIs",
+          "Play Store & App Store Deployment"
+        ]
+      }
+    ]
+  }
+]

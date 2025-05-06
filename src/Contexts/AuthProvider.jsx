@@ -16,8 +16,7 @@ import { auth } from '../utils/firebase.init';
 
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null); // ✅ false → null
-    console.log('AuthProvider User',user);
+    const [user, setUser] = useState(null);
     
     const googleProvider = new GoogleAuthProvider();
     const googleLogin = () => {
@@ -38,23 +37,24 @@ const AuthProvider = ({ children }) => {
   };
 
   const logOUtUser = () => {
-    return signOut(auth); // ✅ return দাও, না দিলে .then().catch() কাজ করবে না
+    return signOut(auth); 
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-        console.log('✅ Authenticated user:', currentUser);
-        setUser(currentUser); // ✅ setUser(currentUser) দিয়ে user state আপডেট করলাম
-    //   if (currentUser) {
+        // console.log(' Authenticated user:', currentUser);
+        setUser(currentUser); 
+
+      });
+    
+      return () => unsubscribe();
+    }, []);
+
     //     setUser(currentUser);
     //   } else {
-    //     console.log('❌ No user found');
+    //     console.log(' No user found');
     //     setUser(null);
     //   }
-    });
-
-    return () => unsubscribe();
-  }, []);
 
   const userInfo = {
     user,

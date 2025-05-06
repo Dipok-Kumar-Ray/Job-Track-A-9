@@ -129,7 +129,7 @@ const Login = () => {
                onClick={() => {
                  setShowPassword(!showPassword);
                }}
-               type="button"
+              //  type="button"
               
                className="btn btn-xs absolute top-2 right-8"
              >
