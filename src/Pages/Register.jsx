@@ -1,11 +1,15 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router";
-import { auth } from "../utils/firebase.init";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
+import { AuthContext } from "../Contexts/AuthContext";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
+    const [showPassword, setShowPassword] = useState(false);
+  
+    const {createUser} = useContext(AuthContext);
+    console.log('createUser', createUser);
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -16,22 +20,40 @@ const Register = () => {
         console.log(name, photo, email, password);
 
         //create user with email and password
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                console.log(user);
-                alert("User Created Successfully")
-                toast.success("User Created Successfully")
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
-                alert(errorMessage)
-                toast.warm('User Already Exist')
-            });
+        createUser({email, password})
+        .then((result) => {
+            // Signed in
+            const user = result.user;
+            console.log(user);
+            alert("User Created Successfully")
+            toast.success("User Created Successfully")
+            // ...
+        })
+        .catch(error => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+            alert(errorMessage)
+            toast.warm('User Already Exist')
+        })
+
+
+        // createUserWithEmailAndPassword(auth, email, password)
+        //     .then((userCredential) => {
+        //         // Signed in
+        //         const user = userCredential.user;
+        //         console.log(user);
+        //         alert("User Created Successfully")
+        //         toast.success("User Created Successfully")
+        //         // ...
+        //     })
+        //     .catch((error) => {
+        //         const errorCode = error.code;
+        //         const errorMessage = error.message;
+        //         console.log(errorCode, errorMessage);
+        //         alert(errorMessage)
+        //         toast.warm('User Already Exist')
+        //     });
     }
   return (
     <div>
@@ -72,7 +94,7 @@ const Register = () => {
            <label className="label">Password : </label>
         <label className="input validator">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             required
             placeholder="Password"
@@ -80,6 +102,16 @@ const Register = () => {
             pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}"
             title="Must be more than 6 characters, lowercase letter, uppercase letter"
           />
+              <button
+                         onClick={() => {
+                           setShowPassword(!showPassword);
+                         }}
+                         type="button"
+                        
+                         className="btn btn-xs absolute top-2 right-8"
+                       >
+                         {showPassword ? <FaEyeSlash /> : <FaEye />}
+                       </button>
         </label>
         <p className="validator-hint hidden">
           Must be more than 6 characters, including

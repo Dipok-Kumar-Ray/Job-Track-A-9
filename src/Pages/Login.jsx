@@ -1,13 +1,43 @@
-import React from "react";
+import React, { useContext, useState} from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../Contexts/AuthContext";
+import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const  navigate = useNavigate()
+
+  const {signInUser} = useContext(AuthContext);
+  // console.log('signInUser', signInUser);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
+
+    //login user with email and password
+    signInUser(email, password)
+      .then((result) => {
+        // Signed in
+        const user = result.user;
+        console.log(user);
+        alert("User Login Successfully")
+        toast.success("User Login Successfully")
+        navigate('/');
+        
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        alert(errorMessage)
+        // toast.warm('User Already Exist') ;
+      });
   };
 
 
@@ -30,12 +60,25 @@ const Login = () => {
             />
             {/* password */}
             <label className="label">Password : </label>
-            <input
-              type="password"
-              className="input"
-              name="password"
-              placeholder="Enter Your Password"
-            />
+            <div className="relative">
+             <input
+               type={showPassword ? "text" : "password"}
+               name="password"
+               className="input"
+               placeholder="Password"
+               required
+             />
+            <button
+               onClick={() => {
+                 setShowPassword(!showPassword);
+               }}
+               type="button"
+              
+               className="btn btn-xs absolute top-2 right-8"
+             >
+               {showPassword ? <FaEyeSlash /> : <FaEye />}
+             </button>
+            </div>
             <div>
               {/* forgot password */}
               <a className="link link-hover">Forgot password?</a>

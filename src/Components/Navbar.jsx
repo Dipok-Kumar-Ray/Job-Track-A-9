@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import navIcons from "../assets/navIcon.jpg"
-import profileImg from "../assets/user.png"
+// import profileImg from "../assets/user.png"
 import { Helmet } from 'react-helmet';
 import  './Navbar.css'
+import { AuthContext } from '../Contexts/AuthContext';
+
 
 
 const Navbar = () => {
+
+  const {user, logOUtUser} = useContext(AuthContext);
+  // console.log('userInfo', user);
+  // console.log('Navbar render User', user);
+
+
+  const handleLogOut = () => {
+    logOUtUser()
+    .then(() => {
+      console.log('user logged out successfully');
+    })
+    .catch((error) => {
+      console.error('Error logging out:', error);
+    });
+  }
+
+  // const userInfo  = useContext(AuthContext);
+  // console.log('userInfo', userInfo);
+
     const links = 
     <>
        <li><NavLink to='/home'>Home</NavLink></li>
@@ -45,8 +66,15 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end  lg:flex gap-3">
-         <img src={profileImg} alt="" />
-         <Link to='/login'  className='btn btn-primary '>Login</Link>
+          {/* <img src={profileImg} alt="" /> */}
+          {
+  user ? (
+    <button onClick={handleLogOut}>Log Out</button>
+  ) : (
+    <Link to='/login' className='btn btn-primary '>Login</Link>
+  )
+}
+
         </div>
       </div>
 
