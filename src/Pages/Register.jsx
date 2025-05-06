@@ -9,7 +9,7 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
   
     const {createUser} = useContext(AuthContext);
-    console.log('createUser', createUser);
+    // console.log('createUser', createUser);
 
     const handleRegister = (e) => {
         e.preventDefault();

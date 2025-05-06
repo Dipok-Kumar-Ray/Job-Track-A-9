@@ -11,8 +11,27 @@ const Login = () => {
 
   const  navigate = useNavigate()
 
-  const {signInUser} = useContext(AuthContext);
-  // console.log('signInUser', signInUser);
+  const {signInUser, googleLogin, resetPassword} = useContext(AuthContext);
+  
+  
+
+  //google login
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        alert("User Login Successfully")
+        toast.success("User Login Successfully")
+        navigate('/');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        alert(errorMessage)
+      });
+  }
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -38,7 +57,45 @@ const Login = () => {
         alert(errorMessage)
         // toast.warm('User Already Exist') ;
       });
+
+
+
+  // if(!email){
+  //   toast.error("Please enter your email address")
+  //     return;
+  // }
+  // resetPassword(email)
+  // .then(()=> {
+  //   toast.success("Password reset email sent successfully !!!")
+
+  // })
+  // .catch((error) => {
+  //   console.log(error.message);
+  //   toast.error("something went wrong . Try again.")
+  // })
+
   };
+
+  //reset/forgot password
+  const handleForgotPassword = e => {
+    e.preventDefault();
+    const email = document.querySelector('input[name="email"]').value;
+    // const email = e.target.email.value;
+    console.log(email);
+    if(!email){
+      toast.error("Please enter your email address")
+      return;
+    }
+    resetPassword(email)
+    .then(()=> {
+      toast.success("Password reset email sent successfully !!!")
+
+    })
+    .catch((error) => {
+      console.log(error.message);
+      toast.error("something went wrong . Try again.")
+    })
+  }
 
 
   return (
@@ -81,7 +138,7 @@ const Login = () => {
             </div>
             <div>
               {/* forgot password */}
-              <a className="link link-hover">Forgot password?</a>
+              <button onClick={handleForgotPassword} type="button" className="link link-hover">Forgot password?</button>
             </div>
             <button type="Submit" className="btn btn-neutral mt-4">
               Login
@@ -94,7 +151,7 @@ const Login = () => {
             </Link>
           </p>
           {/* Google Log In */}
-          <button
+          <button onClick={handleGoogleLogin}
             
             className="btn bg-white text-black border-[#e5e5e5]"
           >
