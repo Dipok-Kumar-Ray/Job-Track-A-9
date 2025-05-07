@@ -1,13 +1,20 @@
 import React from 'react';
 import hero from '../assets/Hero.jpg';
 import { Helmet } from 'react-helmet';
+// import {motion} from "framer-motion"
 
-const Hero = () => {
+ const Hero = () => {
   return (
+
+    
+
+
     <div>
+   
         <Helmet>
         <title>Home | JobsTrack</title>
         </Helmet>
+        
     <div className="mt-12 w-11/12 mx-auto rounded-3xl flex flex-col lg:flex-row items-center justify-between min-h-screen bg-gray-100 px-4 lg:px-16 py-10 gap-8">
       
       {/* Text Section */}
