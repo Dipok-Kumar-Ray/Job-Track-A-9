@@ -8,7 +8,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
   
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updatUser, setUser} = useContext(AuthContext);
     // console.log('createUser', createUser);
 
     const handleRegister = (e) => {
@@ -23,37 +23,32 @@ const Register = () => {
         createUser({email, password})
         .then((result) => {
             // Signed in
+            updatUser({displayName:name, photoURL:photo })
+            .then(() => {
+              setUser({...user, displayName: name, photoURL: photo})
+            })
+            .catch((error) => {
+              console.log(error);
+            setUser(user)
+
+            })
+
+
+
             const user = result.user;
             console.log(user);
-            alert("User Created Successfully")
+            // alert("User Created Successfully")
             toast.success("User Created Successfully")
-            // ...
+            
         })
         .catch(error => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage);
-            alert(errorMessage)
+            // alert(errorMessage)
             toast.warm('User Already Exist')
         })
 
-
-        // createUserWithEmailAndPassword(auth, email, password)
-        //     .then((userCredential) => {
-        //         // Signed in
-        //         const user = userCredential.user;
-        //         console.log(user);
-        //         alert("User Created Successfully")
-        //         toast.success("User Created Successfully")
-        //         // ...
-        //     })
-        //     .catch((error) => {
-        //         const errorCode = error.code;
-        //         const errorMessage = error.message;
-        //         console.log(errorCode, errorMessage);
-        //         alert(errorMessage)
-        //         toast.warm('User Already Exist')
-        //     });
     }
   return (
     <div>
@@ -61,7 +56,7 @@ const Register = () => {
             <title>Registration | JobsTrack</title>
         </Helmet>
         <div className="max-w-sm mx-auto  p-9 rounded-2xl mt-9 shadow-lg bg-slate-200 mb-12">
-      <h2 className="text-3xl mb-9">Please Form Registration Now !</h2>
+      <h2 className="text-3xl mb-9">Please Register Now !</h2>
       <form className="space-y-4" onSubmit={handleRegister}>
         {/* name field */}
       <label className="label"> Name : </label>

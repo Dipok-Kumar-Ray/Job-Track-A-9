@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from 'react-router'; // ✅ ঠিক করলাম: 'react-router' → 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router'; 
 import Root from './Roots/Root.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
 

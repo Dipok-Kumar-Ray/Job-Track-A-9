@@ -56,7 +56,7 @@ const Navbar = () => {
             </ul>
           </div>
          <div className='flex items-center gap-2'>  
-          <h2 className='text-3xl'><span className='text-blue-500 font-bold'>Jobs</span><span className='text-green-400 font-bold'>Track</span></h2>
+          <h2 className='text-3xl'><span className='text-blue-500 font-bold'>Job</span><span className='text-green-400 font-bold'>Track</span></h2>
           <img className='h-8 w-14 rounded-md' src={navIcons} alt="" />
          </div>
         </div>
@@ -66,11 +66,13 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end  lg:flex gap-3">
-          <img src={profileImg} alt="" />
           {
-         user ? (<button onClick={handleLogOut}>Log Out</button> ) : 
-         (
-         <Link to='/login' className='btn btn-primary '>Login</Link>
+            user ? (<button onClick={handleLogOut}>Log Out</button> ) : 
+            (
+          <div className='flex gap-3'>
+             <img src={`${user ? user.photoURL : profileImg}`} alt="" />
+             <Link to='/login' className='btn btn-primary '>Login </Link>
+          </div>
            )
           }
 
