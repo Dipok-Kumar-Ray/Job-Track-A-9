@@ -14,6 +14,10 @@ import { ToastContainer } from 'react-toastify';
 import { StrictMode } from 'react';
 import AuthProvider from './Contexts/AuthProvider.jsx';
 import CompanyDetails from './CompanyFeatures/CompanyDetails.jsx';
+import JobsCard from './CompanyFeatures/JobsCard.jsx';
+
+
+
 
 
 const router = createBrowserRouter([
@@ -28,7 +32,7 @@ const router = createBrowserRouter([
         },
 
         {
-         path: '/companies/:id',
+         path: '/companies',
          loader: () => fetch('/jobs.json'),                  
          Component: CompanyDetails,
          },
@@ -37,6 +41,12 @@ const router = createBrowserRouter([
       { path: '/login', Component: Login },
       { path: '/register', Component: Register },
       { path: '*', Component: ErrorPage },
+      {
+        path:'/jobcard/:id',
+        Component:JobsCard,
+        loader: () => fetch('/jobs.json'),
+        hydrateFallbackElement: <span className="loading loading-bars loading-lg"></span>,
+      }
     ],
   },
 ]);
