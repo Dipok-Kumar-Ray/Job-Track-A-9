@@ -118,7 +118,7 @@ const Register = () => {
         <br />
         {/* Submit Button */}
         <button className="btn btn-neutral w-full mt-4">
-          Login
+          Register
         </button>   
       </form>
       <p className="mt-3">Already have an account?  Please <Link to='/login' className=" text-blue-500 underline">  Login</Link></p>

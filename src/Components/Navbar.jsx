@@ -67,7 +67,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end  lg:flex gap-3">
           {
-            user ? (<button onClick={handleLogOut}>Log Out</button> ) : 
+            user ? (<button className='btn btn-accent' onClick={handleLogOut}>Log Out</button> ) : 
             (
           <div className='flex gap-3'>
              <img src={`${user ? user.photoURL : profileImg}`} alt="" />

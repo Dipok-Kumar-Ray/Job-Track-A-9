@@ -55,32 +55,16 @@ const Login = () => {
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
         alert(errorMessage)
-        // toast.warm('User Already Exist') ;
+        toast.warning('User Already Exist') ;
       });
-
-
-
-  // if(!email){
-  //   toast.error("Please enter your email address")
-  //     return;
-  // }
-  // resetPassword(email)
-  // .then(()=> {
-  //   toast.success("Password reset email sent successfully !!!")
-
-  // })
-  // .catch((error) => {
-  //   console.log(error.message);
-  //   toast.error("something went wrong . Try again.")
-  // })
 
   };
 
   //reset/forgot password
   const handleForgotPassword = e => {
     e.preventDefault();
-    const email = document.querySelector('input[name="email"]').value;
-    // const email = e.target.email.value;
+    // const email = document.querySelector('input[name="email"]').value;
+    const email = e.target.email.value;
     console.log(email);
     if(!email){
       toast.error("Please enter your email address")

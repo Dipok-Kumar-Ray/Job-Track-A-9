@@ -21,6 +21,36 @@
           "REST APIs",
           "Responsive Design"
         ]
+      },
+      {
+        "id": "job-101",
+        "title": "UI/UX Designer",
+        "bannerImage": "https://source.unsplash.com/featured/?uiux",
+        "location": "Dhaka, Bangladesh",
+        "salary": "$1300 - $2000",
+        "jobType": "Full-time",
+        "description": "Design intuitive and engaging user interfaces for our products.",
+        "requirements": [
+          "Figma or Adobe XD",
+          "UI/UX principles",
+          "Wireframing",
+          "Visual Communication Skills"
+        ]
+      },
+      {
+        "id": "job-102",
+        "title": "DevOps Engineer",
+        "bannerImage": "https://source.unsplash.com/featured/?devops",
+        "location": "Remote",
+        "salary": "$2000 - $3000",
+        "jobType": "Full-time",
+        "description": "Implement CI/CD pipelines and manage cloud infrastructure.",
+        "requirements": [
+          "Docker & Kubernetes",
+          "AWS or Azure",
+          "Jenkins or GitHub Actions",
+          "Linux administration"
+        ]
       }
     ]
   },
@@ -45,6 +75,22 @@
           "Excel & Power BI",
           "Problem-solving",
           "Strong Communication"
+        ]
+      },
+      
+      {
+        "id": "job-202",
+        "title": "BI Developer",
+        "bannerImage": "https://source.unsplash.com/featured/?business",
+        "location": "New York",
+        "salary": "$3500 - $5000",
+        "jobType": "Contract",
+        "description": "Create interactive dashboards and reports for stakeholders.",
+        "requirements": [
+          "Tableau or Power BI",
+          "SQL",
+          "Data modeling",
+          "Data visualization principles"
         ]
       }
     ]
@@ -71,6 +117,36 @@
           "Authentication & Authorization",
           "Cloud Hosting"
         ]
+      },
+      {
+        "id": "job-301",
+        "title": "QA Engineer",
+        "bannerImage": "https://source.unsplash.com/featured/?testing",
+        "location": "Remote",
+        "salary": "€2000 - €3000",
+        "jobType": "Full-time",
+        "description": "Ensure software quality through manual and automated testing.",
+        "requirements": [
+          "Selenium or Cypress",
+          "Test planning",
+          "Bug tracking tools",
+          "API testing"
+        ]
+      },
+      {
+        "id": "job-302",
+        "title": "Technical Project Manager",
+        "bannerImage": "https://source.unsplash.com/featured/?management",
+        "location": "Berlin",
+        "salary": "€3500 - €4500",
+        "jobType": "Full-time",
+        "description": "Lead technical projects from inception to delivery.",
+        "requirements": [
+          "Agile methodologies",
+          "JIRA or similar tools",
+          "Technical background",
+          "Stakeholder management"
+        ]
       }
     ]
   },
@@ -96,13 +172,58 @@
           "Accessibility Standards",
           "Mobile-first Design"
         ]
+      },
+      {
+        "id": "job-401",
+        "title": "Healthcare Software Developer",
+        "bannerImage": "https://source.unsplash.com/featured/?healthcare",
+        "location": "Toronto",
+        "salary": "CAD $4000 - $5500",
+        "jobType": "Full-time",
+        "description": "Develop software solutions for healthcare providers.",
+        "requirements": [
+          "Java or C#",
+          "Healthcare systems integration",
+          "HIPAA compliance knowledge",
+          "Database design"
+        ]
+      },
+      {
+        "id": "job-402",
+        "title": "Data Scientist",
+        "bannerImage": "https://source.unsplash.com/featured/?datascience",
+        "location": "Remote",
+        "salary": "$4000 - $6000",
+        "jobType": "Full-time",
+        "description": "Build machine learning models to solve business problems.",
+        "requirements": [
+          "Python & R",
+          "Machine Learning algorithms",
+          "TensorFlow or PyTorch",
+          "Statistical analysis"
+        ]
+      },
+      {
+        "id": "job-403",
+        "title": "Product Manager - Health Tech",
+        "bannerImage": "https://source.unsplash.com/featured/?product",
+        "location": "Remote",
+        "salary": "CAD $5000 - $7000",
+        "jobType": "Full-time",
+        "description": "Lead product development for health technology solutions.",
+        "requirements": [
+          "Product roadmapping",
+          "User story creation",
+          "Healthcare industry experience",
+          "Market research skills"
+        ]
       }
     ]
   },
   {
     "id": "5",
     "name": "EduSpark",
-    "logo": "https://logo.clearbit.com/eduspark.com",
+    "logo": "https://i.ibb.co.com/Q79rkZ4R/image.png",
     "location": "Sydney, Australia",
     "website": "https://eduspark.com",
     "industry": "E-Learning",
@@ -120,6 +241,36 @@
           "SEO Basics",
           "Grammar & Editing",
           "Research Skills"
+        ]
+      },
+      {
+        "id": "job-501",
+        "title": "Instructional Designer",
+        "bannerImage": "https://source.unsplash.com/featured/?education",
+        "location": "Sydney",
+        "salary": "AUD $3000 - $4000",
+        "jobType": "Full-time",
+        "description": "Design effective learning experiences and materials.",
+        "requirements": [
+          "Curriculum development",
+          "LMS experience",
+          "Visual design skills",
+          "Educational psychology knowledge"
+        ]
+      },
+      {
+        "id": "job-502",
+        "title": "E-Learning Developer",
+        "bannerImage": "https://source.unsplash.com/featured/?elearning",
+        "location": "Remote",
+        "salary": "AUD $2500 - $3500",
+        "jobType": "Full-time",
+        "description": "Develop interactive learning modules and assessments.",
+        "requirements": [
+          "Articulate Storyline or Adobe Captivate",
+          "HTML5/CSS3/JavaScript",
+          "Video editing",
+          "SCORM standards"
         ]
       }
     ]
@@ -146,13 +297,43 @@
           "Communication",
           "Technical Background"
         ]
+      },
+      {
+        "id": "job-601",
+        "title": "Renewable Energy Engineer",
+        "bannerImage": "https://source.unsplash.com/featured/?renewable",
+        "location": "Copenhagen",
+        "salary": "DKK 35,000 - 48,000",
+        "jobType": "Full-time",
+        "description": "Design and optimize renewable energy systems.",
+        "requirements": [
+          "Mechanical or Electrical Engineering",
+          "Energy modeling",
+          "AutoCAD or similar",
+          "Environmental impact assessment"
+        ]
+      },
+      {
+        "id": "job-602",
+        "title": "Sustainability Consultant",
+        "bannerImage": "https://source.unsplash.com/featured/?sustainability",
+        "location": "Remote",
+        "salary": "DKK 30,000 - 42,000",
+        "jobType": "Part-time",
+        "description": "Advise clients on sustainable energy practices.",
+        "requirements": [
+          "Environmental science background",
+          "Carbon footprint analysis",
+          "Regulatory knowledge",
+          "Presentation skills"
+        ]
       }
     ]
   },
   {
     "id": "7",
     "name": "CyberShield Inc.",
-    "logo": "https://logo.clearbit.com/cybershield.com",
+    "logo": "https://i.ibb.co.com/hxkrysN0/image.png",
     "location": "Singapore",
     "website": "https://cybershield.com",
     "industry": "Cybersecurity",
@@ -170,6 +351,36 @@
           "Incident Response",
           "Firewalls & IDS",
           "SIEM Tools"
+        ]
+      },
+      {
+        "id": "job-701",
+        "title": "Penetration Tester",
+        "bannerImage": "https://source.unsplash.com/featured/?hacking",
+        "location": "Remote",
+        "salary": "$4500 - $7000",
+        "jobType": "Full-time",
+        "description": "Identify vulnerabilities through ethical hacking.",
+        "requirements": [
+          "Ethical hacking tools",
+          "Web application security",
+          "Network penetration testing",
+          "Security certification (CEH, OSCP)"
+        ]
+      },
+      {
+        "id": "job-702",
+        "title": "Security Architect",
+        "bannerImage": "https://source.unsplash.com/featured/?security",
+        "location": "Singapore",
+        "salary": "$6000 - $9000",
+        "jobType": "Full-time",
+        "description": "Design secure and resilient IT infrastructures.",
+        "requirements": [
+          "Cloud security",
+          "Zero trust architecture",
+          "Identity and access management",
+          "Risk assessment methodologies"
         ]
       }
     ]
@@ -195,6 +406,36 @@
           "Redux",
           "REST APIs",
           "Play Store & App Store Deployment"
+        ]
+      },
+      {
+        "id": "job-801",
+        "title": "Financial Analyst",
+        "bannerImage": "https://source.unsplash.com/featured/?finance",
+        "location": "Mumbai",
+        "salary": "₹50,000 - ₹75,000",
+        "jobType": "Full-time",
+        "description": "Analyze financial data and prepare reports for decision making.",
+        "requirements": [
+          "Financial modeling",
+          "Excel advanced functions",
+          "Financial statement analysis",
+          "Investment analysis"
+        ]
+      },
+      {
+        "id": "job-802",
+        "title": "Blockchain Developer",
+        "bannerImage": "https://source.unsplash.com/featured/?blockchain",
+        "location": "Remote",
+        "salary": "₹80,000 - ₹120,000",
+        "jobType": "Contract",
+        "description": "Build and maintain blockchain-based financial solutions.",
+        "requirements": [
+          "Solidity",
+          "Smart Contracts",
+          "Web3.js",
+          "DeFi knowledge"
         ]
       }
     ]

@@ -15,10 +15,7 @@ import { StrictMode } from 'react';
 import AuthProvider from './Contexts/AuthProvider.jsx';
 import CompanyDetails from './CompanyFeatures/CompanyDetails.jsx';
 import JobsCard from './CompanyFeatures/JobsCard.jsx';
-
-
-
-
+import PrivateRoute from './Components/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,7 +31,9 @@ const router = createBrowserRouter([
         {
          path: '/companies',
          loader: () => fetch('/jobs.json'),                  
-         Component: CompanyDetails,
+         element:<PrivateRoute>
+           <CompanyDetails></CompanyDetails>
+         </PrivateRoute>
          },
 
       { path: '/about', Component: About },

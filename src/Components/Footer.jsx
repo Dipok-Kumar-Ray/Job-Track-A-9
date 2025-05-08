@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="text-center bg-gray-300 py-6">
       <div className="flex flex-wrap justify-center gap-6 text-lg font-semibold mb-4">
-        <NavLink to="/home" className="link link-hover">
+        <NavLink to="/" className="link link-hover">
           Home
         </NavLink>
         <NavLink to="/companies" className="link link-hover">
@@ -14,7 +14,7 @@ const Footer = () => {
         <NavLink to="/about" className="link link-hover">
           About
         </NavLink>
-        <NavLink to="/privacy" className="link link-hover">
+        <NavLink to="/*" className="link link-hover">
           Privacy Policy
         </NavLink>
       </div>
