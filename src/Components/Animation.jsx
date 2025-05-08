@@ -1,58 +1,41 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { motion } from 'framer-motion';
+
 
 const Animation = () => {
-  const slides = [
-    {
-      id: 1,
-      title: "Tech & Gadgets Box",
-      image: "https://i.ibb.co.com/gcxJr9P/developer.jpg",
-      description: "Monthly curated gadgets and smart devices just for you.",
-    },
-    {
-      id: 2,
-      title: "Skincare Essentials Box",
-      image: "https://i.ibb.co.com/RTKNv53Q/images4.jpg",
-      description: "Handpicked books just for you.",
-    },
-    {
-      id: 3,
-      title: "Fitness & Wellness Box",
-      image: "https://i.ibb.co.com/Pv0dV3mG/images8.jpg",
-      description: "Supplements, accessories, and fitness guides.",
-    },
-  ];
-
   return (
-    <div className="w-full max-w-screen-xl mx-auto py-8 px-4">
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 4000 }}
-        loop={true}
-        className="rounded-xl shadow-lg"
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-white flex flex-col items-center justify-center p-6">
+      {/* Animated Title */}
+      <motion.h1
+        className="text-5xl font-bold text-blue-600 mb-4 text-center"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
       >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <div
-              className="relative h-[300px] md:h-[500px] bg-cover bg-center rounded-xl overflow-hidden"
-              style={{ backgroundImage: url(${slide.image}) }}
-            >
-              <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-white text-center p-4">
-                <div>
-                  <h2 className="text-2xl md:text-4xl font-bold mb-2">{slide.title}</h2>
-                  <p className="text-sm md:text-lg">{slide.description}</p>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        Welcome to JobTrack!
+      </motion.h1>
+
+      {/* Subtitle with delay */}
+      <motion.p
+        className="text-lg text-gray-700 mb-8 text-center max-w-xl"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+      >
+        Track your job applications easily and stay organized with our smart platform.
+      </motion.p>
+
+      {/* Animated Call to Action Button */}
+      <motion.button
+        className="bg-blue-600 text-white px-6 py-3 rounded-xl text-lg shadow-md hover:bg-blue-700 transition"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6 }}
+      >
+        Get Started
+      </motion.button>
     </div>
   );
 };

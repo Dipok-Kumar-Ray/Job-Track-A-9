@@ -9,7 +9,7 @@ import CareerTipsSection from '../ExtraFeatures/CareerTipsSection';
 const Home = () => {
   return (
     <div>
-      <Hero/>
+      {/* <Hero/> */}
       {/* <JobCard/> */}
       <CompanyDetails/>
       <CompaniesSection/>

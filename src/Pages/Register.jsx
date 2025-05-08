@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router";
-import { toast } from "react-toastify";
+import { Link, Navigate } from "react-router";
+// import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../Contexts/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -8,7 +8,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
   
-    const {createUser, updatUser, setUser} = useContext(AuthContext);
+    const {createUser, updateUser, setUser} = useContext(AuthContext);
     // console.log('createUser', createUser);
 
     const handleRegister = (e) => {
@@ -20,35 +20,26 @@ const Register = () => {
         console.log(name, photo, email, password);
 
         //create user with email and password
-        createUser({email, password})
-        .then((result) => {
-            // Signed in
-            updatUser({displayName:name, photoURL:photo })
-            .then(() => {
-              setUser({...user, displayName: name, photoURL: photo})
-            })
-            .catch((error) => {
-              console.log(error);
-            setUser(user)
-
-            })
-
-
-
-            const user = result.user;
-            console.log(user);
-            // alert("User Created Successfully")
-            toast.success("User Created Successfully")
-            
-        })
-        .catch(error => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-            // alert(errorMessage)
-            toast.warm('User Already Exist')
-        })
-
+        createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        // console.log(user);
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+            Navigate("/");
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage, errorCode);
+        
+      });
     }
   return (
     <div>
@@ -117,9 +108,9 @@ const Register = () => {
         </p>
         <br />
         {/* Submit Button */}
-        <button className="btn btn-neutral w-full mt-4">
+        <Link to='/login' button  className="btn btn-neutral w-full mt-4">
           Register
-        </button>   
+        </Link>   
       </form>
       <p className="mt-3">Already have an account?  Please <Link to='/login' className=" text-blue-500 underline">  Login</Link></p>
     </div>

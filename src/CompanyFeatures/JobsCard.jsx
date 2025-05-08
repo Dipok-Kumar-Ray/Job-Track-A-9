@@ -1,11 +1,13 @@
-import React from 'react';
+// import React, { useState } from 'react';
 import { Link, useLoaderData, useParams } from 'react-router';
 import devTable from '../assets/developer.jpg'
+import { Helmet } from 'react-helmet';
 
 const JobsCard = () => {
   const data = useLoaderData();
   const { id } = useParams();
 
+  // const [apply, setApply] = useState(false);
 
   const categoriesID = data.filter(d => d.id === id);
   
@@ -15,7 +17,12 @@ const JobsCard = () => {
   }
 
   return (
-    <div>
+<div>
+  <Helmet>
+    <title>JobCard | JobTrack</title>
+  </Helmet>
+
+  <div>
       {
         categoriesID.map(company => (
           <div className='w-11/12 mx-auto mt-9 ' key={company.id}>
@@ -54,11 +61,14 @@ const JobsCard = () => {
                   </ul>
                 </div>
               ))
+
             }
+           
           </div>
         ))
       }
     </div>
+</div>
   );
 };
 

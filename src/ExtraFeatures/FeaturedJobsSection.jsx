@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router";
 
 const FeaturedJobsSection = () => {
@@ -26,7 +27,11 @@ const FeaturedJobsSection = () => {
     ];
   
     return (
-      <section className="py-12 bg-white">
+      <div>
+        <Helmet>
+          <title>FeaturedJob | JobTrack</title>
+        </Helmet>
+        <section className="py-12 bg-white">
         <h2 className="text-3xl font-bold text-center mb-8"> Featured Jobs</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
           {jobs.map(job => (
@@ -39,6 +44,7 @@ const FeaturedJobsSection = () => {
           ))}
         </div>
       </section>
+      </div>
     );
   };
   

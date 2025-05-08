@@ -114,7 +114,7 @@ const Login = () => {
                onClick={() => {
                  setShowPassword(!showPassword);
                }}
-              //  type="button"
+               type="button"
               
                className="btn btn-xs absolute top-2 right-8"
              >
@@ -125,7 +125,7 @@ const Login = () => {
               {/* forgot password */}
               <button onClick={handleForgotPassword} type="button" className="link link-hover">Forgot password?</button>
             </div>
-            <button type="Submit" className="btn btn-neutral mt-4">
+            <button  type="submit" className="btn btn-neutral mt-4">
               Login
             </button>
           </form>
@@ -136,7 +136,7 @@ const Login = () => {
             </Link>
           </p>
           {/* Google Log In */}
-          <button onClick={handleGoogleLogin}
+          <button type="button" onClick={handleGoogleLogin}
             
             className="btn bg-white text-black border-[#e5e5e5]"
           >

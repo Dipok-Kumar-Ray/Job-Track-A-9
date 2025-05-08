@@ -1,8 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router';
 
 const ErrorPage = () => {
     return (
+       <div>
+        <Helmet>
+            <title>ErrorPage | JobTrack</title>
+        </Helmet>
         <div>
             <title>ErrorPage | JobsTrack</title>
             <div className='p-9 mt-16 mb-19 flex flex-col justify-center items-center  bg-gray-100'>
@@ -12,6 +17,7 @@ const ErrorPage = () => {
            <Link to='/'  className='btn btn-primary mt-5'>Back to home page</Link>
         </div>
         </div>
+       </div>
     );
 };
 

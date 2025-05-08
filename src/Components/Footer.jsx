@@ -1,8 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router"; // এটি ঠিক করো: 'react-router' → 'react-router-dom'
+import { Helmet } from "react-helmet";
+import { NavLink } from "react-router"; 
 
 const Footer = () => {
   return (
+   <div>
+    <Helmet>
+      <title> Footer | JobTrack</title>
+    </Helmet>
     <div className="text-center bg-gray-300 py-6">
       <div className="flex flex-wrap justify-center gap-6 text-lg font-semibold mb-4">
         <NavLink to="/" className="link link-hover">
@@ -20,6 +25,7 @@ const Footer = () => {
       </div>
       <p className="text-sm">© {new Date().getFullYear()} JobsTrack. All rights reserved.</p>
     </div>
+   </div>
   );
 };
 

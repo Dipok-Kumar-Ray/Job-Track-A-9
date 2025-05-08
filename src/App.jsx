@@ -1,4 +1,5 @@
 import './App.css'
+import Hero from './Components/Hero'
 
 function App() {
 
@@ -6,7 +7,9 @@ function App() {
   return (
     <>
  
-      <h1>Vite + React</h1>
+     <div>
+      {/* <Hero></Hero> */}
+     </div>
      
   
     </>

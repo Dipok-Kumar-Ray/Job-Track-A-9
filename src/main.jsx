@@ -16,6 +16,8 @@ import AuthProvider from './Contexts/AuthProvider.jsx';
 import CompanyDetails from './CompanyFeatures/CompanyDetails.jsx';
 import JobsCard from './CompanyFeatures/JobsCard.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
+import Hero from './Components/Hero.jsx';
+import App from './App.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,11 +27,15 @@ const router = createBrowserRouter([
       { 
         index: true,
         hydrateFallbackElement: <span className="loading loading-bars loading-lg"></span>,
-
-      element:<PrivateRoute>
-        <Home></Home>
-      </PrivateRoute>        
+        element:<PrivateRoute>
+          <Home></Home>
+        </PrivateRoute>
+      //  Component: Home,       
         },
+        // {
+        //   path:'/',
+        //   Component: Hero
+        // },
 
         {
          path: '/companies',
@@ -51,7 +57,7 @@ const router = createBrowserRouter([
       },
       {
          path: '/login',
-          Component: Login ,
+          element: <Login/> ,
           hydrateFallbackElement: <span className="loading loading-bars loading-lg"></span>,
         
         },
@@ -81,6 +87,7 @@ createRoot(document.getElementById('root')).render(
     <HelmetProvider>
       <AuthProvider> 
         <RouterProvider router={router} />
+        {/* <App/> */}
         <ToastContainer />
       </AuthProvider>
     </HelmetProvider>

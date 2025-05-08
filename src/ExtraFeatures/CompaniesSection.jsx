@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router';
 
 const CompaniesSection = () => {
@@ -27,6 +28,11 @@ const CompaniesSection = () => {
       
   
     return (
+    <div>
+      <Helmet>
+        <title>Companies | JobTrack</title>
+      </Helmet>
+
       <section className="w-11/12 mx-auto rounded-2xl py-12 bg-gray-100 ">
         <h2 className="text-3xl font-bold text-center mb-8">Top Companies</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
@@ -44,6 +50,7 @@ const CompaniesSection = () => {
           }
         </div>
       </section>
+    </div>
     );
   };
   

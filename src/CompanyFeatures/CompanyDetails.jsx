@@ -21,7 +21,7 @@ const CompanyDetails = () => {
         detail.map((company) => (
           <div
             key={company.id}  
-            className=" bg-slate-200 rounded-xl py-5 text-center shadow-lg "
+            className=" bg-slate-100 rounded-xl py-5 text-center shadow-lg "
           >
             <div className="flex justify-around py-5 items-center">
               <img 

@@ -1,15 +1,17 @@
 import React from 'react';
 import hero from '../assets/Hero.jpg';
 import { Helmet } from 'react-helmet';
+import Animation from './Animation';
 // import {motion} from "framer-motion"
 
  const Hero = () => {
   return (
 
     
-
+    
 
     <div>
+      {/* <Animation></Animation> */}
    
         <Helmet>
         <title>Home | JobsTrack</title>
