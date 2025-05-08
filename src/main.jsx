@@ -24,22 +24,48 @@ const router = createBrowserRouter([
     children: [
       { 
         index: true,
-         Component: Home, 
-        
+        hydrateFallbackElement: <span className="loading loading-bars loading-lg"></span>,
+
+      element:<PrivateRoute>
+        <Home></Home>
+      </PrivateRoute>        
         },
 
         {
          path: '/companies',
-         loader: () => fetch('/jobs.json'),                  
+         loader: () => fetch('/jobs.json'),   
+        hydrateFallbackElement: <span className="loading loading-bars loading-lg"></span>,
+
          element:<PrivateRoute>
            <CompanyDetails></CompanyDetails>
          </PrivateRoute>
          },
 
-      { path: '/about', Component: About },
-      { path: '/login', Component: Login },
-      { path: '/register', Component: Register },
-      { path: '*', Component: ErrorPage },
+      {
+         path: '/about', 
+
+         element: <PrivateRoute>
+          <About></About>
+         </PrivateRoute>
+
+      },
+      {
+         path: '/login',
+          Component: Login ,
+          hydrateFallbackElement: <span className="loading loading-bars loading-lg"></span>,
+        
+        },
+      {
+         path: '/register',
+         Component: Register ,
+         hydrateFallbackElement: <span className="loading loading-bars loading-lg"></span>,
+        
+        },
+
+      {
+         path: '*', 
+         Component: ErrorPage 
+        },
       {
         path:'/jobcard/:id',
         Component:JobsCard,

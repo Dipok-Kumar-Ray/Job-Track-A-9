@@ -51,10 +51,11 @@ const Login = () => {
         
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        alert(errorMessage)
+        alert('Please Register Now And Then Login', error);
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        // console.log(errorCode, errorMessage);
+        // alert(errorMessage)
         toast.warning('User Already Exist') ;
       });
 

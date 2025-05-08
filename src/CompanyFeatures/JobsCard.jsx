@@ -10,9 +10,9 @@ const JobsCard = () => {
   const categoriesID = data.filter(d => d.id === id);
   
 
-  // if (!categoriesID || categoriesID.length === 0) {
-  //   return <div> No Company Card Found.  </div>;
-  // }
+  if (!categoriesID || categoriesID.length === 0) {
+    return <div> No Company Card Found.  </div>;
+  }
 
   return (
     <div>
