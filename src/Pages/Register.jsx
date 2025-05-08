@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, Navigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 // import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../Contexts/AuthContext";
@@ -7,7 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
-  
+     const  navigate = useNavigate();
     const {createUser, updateUser, setUser} = useContext(AuthContext);
     // console.log('createUser', createUser);
 
@@ -27,7 +27,7 @@ const Register = () => {
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
-            Navigate("/");
+            navigate("/");
           })
           .catch((error) => {
             console.log(error);
@@ -108,9 +108,9 @@ const Register = () => {
         </p>
         <br />
         {/* Submit Button */}
-        <Link to='/login' button  className="btn btn-neutral w-full mt-4">
+        <button type="submit"  className="btn btn-neutral w-full mt-4">
           Register
-        </Link>   
+        </button>   
       </form>
       <p className="mt-3">Already have an account?  Please <Link to='/login' className=" text-blue-500 underline">  Login</Link></p>
     </div>
