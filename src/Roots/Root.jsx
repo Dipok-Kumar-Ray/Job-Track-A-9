@@ -8,7 +8,6 @@ const Root = () => {
     return (
         <div>
             <Navbar/>
-            <Animation/>
             {/* {import.meta.env.VITE_name} */}
             <Outlet/>
             <Footer/>

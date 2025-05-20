@@ -25,9 +25,6 @@ const Navbar = () => {
     });
   }
 
-  // const userInfo  = useContext(AuthContext);
-  // console.log('userInfo', userInfo);
-
     const links = 
     <>
        <li><NavLink to='/'>Home</NavLink></li>
@@ -66,14 +63,25 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end  lg:flex gap-3">
+
           {
-            user ? (<button className='btn btn-accent' onClick={handleLogOut}>Log Out</button> ) : 
+            
+            user ? (
+
+              <div className='flex gap-2 items-center '>
+
+                <img className='h-12 w-12 rounded-full border' src={`${user ? user.photoURL : profileImg}`} alt="" />
+
+            <button className='btn btn-accent' onClick={handleLogOut}>Log Out</button>
+              </div>
+
+              )  :
             (
           <div className='flex gap-3'>
-             <img src={`${user ? user.photoURL : profileImg}`} alt="" />
              <Link to='/login' className='btn btn-primary '>Login </Link>
           </div>
-           )
+           ) 
+         
           }
 
         </div>

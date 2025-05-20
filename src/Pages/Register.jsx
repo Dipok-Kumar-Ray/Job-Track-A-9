@@ -4,6 +4,7 @@ import { Link, Navigate, useNavigate } from "react-router";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../Contexts/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -28,6 +29,7 @@ const Register = () => {
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
             navigate("/");
+            toast.success('Register successfully')
           })
           .catch((error) => {
             console.log(error);
@@ -56,6 +58,7 @@ const Register = () => {
               className="input"
               name="name"
               placeholder="Enter Your Name "
+              required
             />
             {/* Photo-URL field */}
 
@@ -73,6 +76,7 @@ const Register = () => {
               className="input"
               name="email"
               placeholder="Enter Your Email"
+              required
             />
 
         <br />
@@ -108,11 +112,18 @@ const Register = () => {
         </p>
         <br />
         {/* Submit Button */}
-        <button type="submit"  className="btn btn-neutral w-full mt-4">
+        
+         <button   type="submit"  className="btn btn-neutral w-full mt-4">
           Register
-        </button>   
+        </button>  
       </form>
-      <p className="mt-3">Already have an account?  Please <Link to='/login' className=" text-blue-500 underline">  Login</Link></p>
+
+      {/* <p>Already have an account? Please <Link to={"/login"}>Register</Link></p> */}
+
+
+      <p className="mt-3">Already have an account?  Please <Link to='/login' className=" text-blue-500 underline">
+        Login</Link>
+        </p>
     </div>
     </div>
   );

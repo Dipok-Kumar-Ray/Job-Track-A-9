@@ -125,9 +125,12 @@ const Login = () => {
               {/* forgot password */}
               <button onClick={handleForgotPassword} type="button" className="link link-hover">Forgot password?</button>
             </div>
-            <button  type="submit" className="btn btn-neutral mt-4">
+           
+           <Link to='/'>
+             <p  type="submit" className="btn btn-neutral mt-4">
               Login
-            </button>
+            </p>
+           </Link>
           </form>
           <p className="mt-2 text-center">
             New to this site? Please 

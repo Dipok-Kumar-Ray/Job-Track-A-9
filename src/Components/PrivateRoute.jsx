@@ -11,7 +11,7 @@ const PrivateRoute = ({children}) => {
         return children;
     }
     //inactive user to navigate in login
-    return <Navigate to='/companies'></Navigate>
+    return <Navigate to='/login'></Navigate>
 };
 
 export default PrivateRoute;

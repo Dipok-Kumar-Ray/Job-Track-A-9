@@ -34,8 +34,8 @@ const AuthProvider = ({ children }) => {
   };
 
   const signInUser = (email, password) => {
-    console.log(email, password, auth);
     return signInWithEmailAndPassword(auth, email, password);
+    // console.log(email, password, auth);
   };
 
 

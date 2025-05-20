@@ -4,6 +4,7 @@ import CompanyDetails from '../CompanyFeatures/CompanyDetails';
 import CompaniesSection from '../ExtraFeatures/CompaniesSection';
 import FeaturedJobsSection from '../ExtraFeatures/FeaturedJobsSection';
 import CareerTipsSection from '../ExtraFeatures/CareerTipsSection';
+import Animation from './Animation';
 // import JobCard from '../CompanyFeatures/JobsCard';
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
     <div>
       {/* <Hero/> */}
       {/* <JobCard/> */}
+      <Animation/>
       <CompanyDetails/>
       <CompaniesSection/>
       <CareerTipsSection/>
