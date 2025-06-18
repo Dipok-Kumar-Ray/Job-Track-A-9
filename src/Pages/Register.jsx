@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router";
-// import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../Contexts/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";

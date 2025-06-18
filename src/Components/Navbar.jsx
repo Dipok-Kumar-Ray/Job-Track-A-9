@@ -11,8 +11,6 @@ import { AuthContext } from '../Contexts/AuthContext';
 const Navbar = () => {
 
   const {user, logOUtUser} = useContext(AuthContext);
-  // console.log('userInfo', user);
-  // console.log('Navbar render User', user);
 
 
   const handleLogOut = () => {
@@ -54,7 +52,7 @@ const Navbar = () => {
           </div>
          <div className='flex items-center gap-2'>  
           <h2 className='text-3xl'><span className='text-blue-500 font-bold'>Job</span><span className='text-green-400 font-bold'>Track</span></h2>
-          <img className='h-8 w-14 rounded-md' src={navIcons} alt="" />
+          {/* <img className='h-8 w-14 rounded-md' src={navIcons} alt="" /> */}
          </div>
         </div>
         <div className="navbar-center hidden lg:flex">

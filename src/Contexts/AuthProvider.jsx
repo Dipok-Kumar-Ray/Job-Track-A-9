@@ -1,19 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { AuthContext } from './AuthContext';
-import {
-  createUserWithEmailAndPassword,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-  updateProfile,
-} from 'firebase/auth';
-import { auth } from '../utils/firebase.init';
-
-
-
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { auth } from "../utils/firebase.init";
+import { AuthContext } from "./AuthContext";
 
 
 const AuthProvider = ({ children }) => {
@@ -35,7 +23,7 @@ const AuthProvider = ({ children }) => {
 
   const signInUser = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
-    // console.log(email, password, auth);
+   
   };
 
 
@@ -55,7 +43,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-        // console.log(' Authenticated user:', currentUser);
+  
         setUser(currentUser); 
 
       });
@@ -63,11 +51,6 @@ const AuthProvider = ({ children }) => {
       return () => unsubscribe();
     }, []);
 
-    //     setUser(currentUser);
-    //   } else {
-    //     console.log(' No user found');
-    //     setUser(null);
-    //   }
 
   const userInfo = {
     user,

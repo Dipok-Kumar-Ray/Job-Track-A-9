@@ -21,30 +21,22 @@ const CompanyDetails = () => {
         detail.map((company) => (
           <div
             key={company.id}  
-            className=" bg-slate-100 rounded-xl py-5 text-center shadow-lg "
+            className="bg-amber-50 shadow-2xl rounded-xl py-5 text-center bg-gradient-to-bl "
           >
-            <div className="flex justify-around py-5 items-center">
+            <div className=" not-only:flex justify-around py-5 items-center">
               <img 
                 src={company.logo}
                 alt=""
-                className="w-24 h-24 object-cover my-2 rounded-full"
+                className="w-34 h-34 lg:h-24 lg:w-24  object-cover my-2 rounded-full"
               />
 
               <div className="text-left ml-4 lh-20">
-                <h2 className="text-3xl lg:text-xl mb-4 font-semibold lg:p-3">{company.name}</h2>
-                
-                {/* <h3 className="text-2xl mb-2">{company.jobs[0].title}</h3>
-                <p> Salary: {company.jobs[0].salary}</p>
-                <p>JobType: {company.jobs[0].jobType}</p>               
-                <p> Location: {company.jobs[0].location}</p>             
-                <p className="text-gray-600 mb-2">
-                  Industry: {company.industry}
-                </p> */}
+                <h2 className="text-3xl text-blue-500 lg:text-xl mb-4 font-semibold lg:p-3">{company.name}</h2>
 
               </div>
             </div>
          <Link to={`/jobcard/${company.id}` }state={{company}}>
-         <button  className="w-full  btn btn-primary mt-7 text-white px-4 py-1 rounded hover:bg-gray-800 transition">View Details</button>
+         <button  className="w-  btn bg-amber-300 mt-7 text-white px-4 py-1 rounded hover:bg-gray-800 transition">View Details</button>
          </Link>
           </div>
         ))}

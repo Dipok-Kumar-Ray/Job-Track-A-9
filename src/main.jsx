@@ -60,13 +60,9 @@ const router = createBrowserRouter([
         
         },
 
-      {
-         path: '*', 
-         Component: ErrorPage 
-        },
-      {
-        path:'/jobcard/:id',
-        element: <PrivateRoute>
+        {
+          path:'/jobcard/:id',
+          element: <PrivateRoute>
           <JobsCard />
         </PrivateRoute>,
         loader: () => fetch('/jobs.json'),
@@ -74,6 +70,10 @@ const router = createBrowserRouter([
       }
     ],
   },
+  {
+     path: '*', 
+     Component: ErrorPage 
+    },
 ]);
 
 createRoot(document.getElementById('root')).render(

@@ -10,8 +10,6 @@ import Animation from './Animation';
 const Home = () => {
   return (
     <div>
-      {/* <Hero/> */}
-      {/* <JobCard/> */}
       <Animation/>
       <CompanyDetails/>
       <CompaniesSection/>
