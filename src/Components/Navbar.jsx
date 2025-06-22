@@ -35,10 +35,10 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/companies">Companies</NavLink>
+        <NavLink to="/company">Companies</NavLink>
       </li>
       <li>
-        <NavLink to="/jobcard">Company Details</NavLink>
+        <NavLink to="/companies">Company Details</NavLink>
       </li>
 
       </>
@@ -85,9 +85,11 @@ const Navbar = () => {
                 </Link>
               {/* </li> */}
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
+             <NavLink to='/update'>
+               <div className="w-10 rounded-full">
                 <img src={user.photoURL || profileImg} alt="User Profile" />
               </div>
+             </NavLink>
             </label>
           </div>
         ) : (
@@ -98,9 +100,6 @@ const Navbar = () => {
         )}
       </div>
     </div>
-
-
-
   );
 };
 

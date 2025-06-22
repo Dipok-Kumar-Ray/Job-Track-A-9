@@ -1,12 +1,41 @@
-# React + Vite
+Project Name : JobTrack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Live link : 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 🎯 Project Purpose
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+👉 **JobTrack** তৈরি করা হয়েছে যাতে:
+- জব সিকাররা সহজে চাকরি খুঁজে পেতে পারে।
+- কোম্পানি গুলো চাকরির বিজ্ঞাপন পোস্ট করতে পারে।
+- চাকরির তথ্য সুন্দরভাবে ব্রাউজ এবং ফিল্টার করা যায়।
+- লগইন সিস্টেমের মাধ্যমে ইউজার সিকিউরিটি নিশ্চিত করা যায়।
+
+
+Technology usage: 
+** html
+** css
+** tailwind css
+** daisyUI
+** js
+** react
+** firebase
+** netlify
+** vite
+
+
+Package usage:
+
+** framer motion
+** lucide-react
+** react-clock
+** react-helmet
+** react-slick
+** sweet alert2
+** swiper
+
+
+
+DEVELOPED BY: DIPOK KUMAR RAY
+ROLE        : MERN STACK DEVELOPER

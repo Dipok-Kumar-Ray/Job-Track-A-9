@@ -1,60 +1,73 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
-import { useNavigate } from "react-router";
-import { toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
 
 const UpdateProfile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const [name, setName] = useState(user?.displayName || '');
-  const [photoURL, setPhotoURL] = useState(user?.photoURL || '');
-  const navigate = useNavigate();
+  const [photo, setPhoto] = useState(user?.photoURL || '');
 
-  const handleUpdate = (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
+    try {
+      await updateProfile(user, {
+        displayName: name,
+        photoURL: photo,
+      });
+      setUser({ ...user, displayName: name, photoURL: photo });
 
-    // এখানে তুমি firebase user update logics বা db call বসাতে পারো future এ
-    console.log("Updated Info:", { name, photoURL });
-    toast.success("Information updated successfully!");
-
-    // এখন শুধু profile page এ পাঠিয়ে দিচ্ছি
-    navigate('/my-profile');
+      Swal.fire({
+        icon: 'success',
+        title: 'Profile Updated!',
+        text: 'Your name and photo were successfully updated.',
+      });
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Update Failed!',
+        text: error.message,
+      });
+    }
   };
 
   return (
-    <div className="w-11/12 max-w-xl mx-auto bg-white shadow-lg rounded-2xl p-6 mt-10">
-      <Helmet>
-        <title>Update Profile | JobsTrack</title>
-      </Helmet>
+    <div className="max-w-md mx-auto my-10 p-6 bg-white shadow-lg rounded">
+       <Helmet>
+            <title>Profile || Subscription</title>
+          </Helmet>
+      <h2 className="text-2xl font-bold mb-4 text-primary text-center">My Profile</h2>
 
-      <h2 className="text-2xl font-bold text-blue-600 mb-4 text-center">Update Your Information</h2>
+      <div className="text-center mb-4">
+        <img src={user?.photoURL} alt="Profile" className="w-24 h-24 rounded-full mx-auto mb-2 border" />
+        <p className='text-primary'><strong>Name:</strong> {user?.displayName}</p>
+        <p className='text-primary'><strong>Email:</strong> {user?.email}</p>
+      </div>
 
       <form onSubmit={handleUpdate} className="space-y-4">
         <div>
-          <label className="label">Name</label>
+          <label className="text-primary">Update Name</label>
           <input
             type="text"
-            className="input input-bordered w-full"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your name"
+            className="input input-bordered bg-blue-700 text-white w-full"
             required
           />
         </div>
-
         <div>
-          <label className="label">Photo URL</label>
+          <label className="text-primary">Update Photo URL</label>
           <input
             type="text"
-            className="input input-bordered w-full"
-            value={photoURL}
-            onChange={(e) => setPhotoURL(e.target.value)}
-            placeholder="Enter photo URL"
+            value={photo}
+            onChange={(e) => setPhoto(e.target.value)}
+            className="input input-bordered bg-blue-700 text-white w-full"
             required
           />
         </div>
-
-        <button type="submit" className="btn btn-primary w-full">Update Information</button>
+        <button type="submit" className="btn btn-primary w-full">Update Profile</button>
       </form>
     </div>
   );
