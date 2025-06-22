@@ -16,6 +16,7 @@ import AuthProvider from './Contexts/AuthProvider.jsx';
 import CompanyDetails from './CompanyFeatures/CompanyDetails.jsx';
 import JobsCard from './CompanyFeatures/JobsCard.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
+import MyProfile from './Pages/MyProfile.jsx';
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
 
          element:
            <CompanyDetails></CompanyDetails>
+         },
+         {
+          path: 'companyDetails/:id',
+          element: <PrivateRoute><CompanyDetails></CompanyDetails></PrivateRoute>
          },
 
       {
@@ -67,6 +72,10 @@ const router = createBrowserRouter([
         </PrivateRoute>,
         loader: () => fetch('/jobs.json'),
         hydrateFallbackElement: <span className="loading loading-bars loading-lg"></span>,
+      },
+      {
+        path: 'myProfile',
+        element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
       }
     ],
   },

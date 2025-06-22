@@ -1,94 +1,107 @@
-import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router';
-import navIcons from "../assets/navIcon.jpg"
-import profileImg from "../assets/user.png"
-import { Helmet } from 'react-helmet';
-import  './Navbar.css'
-import { AuthContext } from '../Contexts/AuthContext';
-
+import './navbar.css';
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Contexts/AuthContext";
+import { Link, NavLink } from "react-router";
+import profileImg from  '../assets/user.png'
 
 
 const Navbar = () => {
+  const { user, logOUtUser } = useContext(AuthContext);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
-  const {user, logOUtUser} = useContext(AuthContext);
+  useEffect(() => {
+    const html = document.documentElement;
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
-  const handleLogOut = () => {
+  const handleSignOut = () => {
     logOUtUser()
-    .then(() => {
-      console.log('user logged out successfully');
-    })
-    .catch((error) => {
-      console.error('Error logging out:', error);
-    });
-  }
+      .then(() => {
+        console.log("User signed out");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
-    const links = 
+    const links = (
     <>
-       <li><NavLink to='/'>Home</NavLink></li>
-       <li><NavLink to='/companies'>Companies</NavLink></li>
-        <li><NavLink to='/about'>About</NavLink></li>
-   </>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/companies">Companies</NavLink>
+      </li>
+      <li>
+        <NavLink to="/jobcard">Company Details</NavLink>
+      </li>
 
-    return (
+      </>
+  );
 
- <div>
-<Helmet>
-  <title> Navbar | JobsTrack</title>
-</Helmet>
-<div className='navbar bg-base-100 w-11/12 mx-auto'>
-
-<div className="navbar bg-base-100 ">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-             {links}
-            </ul>
+  return (
+    <div className="w-11/12 mx-auto navbar bg-base-100 shadow-sm">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round"
+                strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
           </div>
-         <div className='flex items-center gap-2'>  
-          <h2 className='text-3xl'><span className='text-blue-500 font-bold'>Job</span><span className='text-green-400 font-bold'>Track</span></h2>
-          {/* <img className='h-8 w-14 rounded-md' src={navIcons} alt="" /> */}
-         </div>
-        </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-           {links}
+          <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow">
+            {links}
           </ul>
         </div>
-        <div className="navbar-end  lg:flex gap-3">
-
-          {
-            
-            user ? (
-
-              <div className='flex gap-2 items-center '>
-
-                <img className='h-12 w-12 rounded-full border' src={`${user ? user.photoURL : profileImg}`} alt="" />
-
-            <button className='btn btn-accent' onClick={handleLogOut}>Log Out</button>
-              </div>
-
-              )  :
-            (
-          <div className='flex gap-3'>
-             <Link to='/login' className='btn btn-primary '>Login </Link>
-          </div>
-           ) 
-         
-          }
-
+        <div className="flex items-center font-bold">
+          <span className="text-3xl text-blue-400 font-bold">Job</span>
+          <span className="text-3xl text-green-400 font-bold">Track</span>
         </div>
       </div>
 
-     </div>
+      <div className=" navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1 space-x-2">
+          {links}
+          <button onClick={toggleTheme}
+            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>
+            {theme === "dark" ? "🌞" : "🌙"}
+          </button>
+        </ul>
+      </div>
 
- </div>
-    );
+      <div className="navbar-end space-x-2">
+        {user ? (
+          <div className="flex justify-between gap-3">
+                   {/* <li> */}
+                <Link to="/myProfile">
+                 <button className='btn btn-primary' onClick={handleSignOut}>Logout</button>
+                </Link>
+              {/* </li> */}
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src={user.photoURL || profileImg} alt="User Profile" />
+              </div>
+            </label>
+          </div>
+        ) : (
+          <>
+            <Link to="/register" className="btn btn-outline btn-sm">Register</Link>
+            <Link to="/login" className="btn btn-primary btn-sm">Login</Link>
+          </>
+        )}
+      </div>
+    </div>
+
+
+
+  );
 };
 
 export default Navbar;

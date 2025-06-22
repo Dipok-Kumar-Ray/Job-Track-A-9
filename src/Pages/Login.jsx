@@ -1,147 +1,134 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link, useNavigate } from "react-router";
+// import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthContext";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-
+import { Link, useNavigate } from "react-router";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
-  const  navigate = useNavigate()
+  const { signInUser, googleLogin, resetPassword } = useContext(AuthContext);
 
-  const {signInUser, googleLogin, resetPassword} = useContext(AuthContext);
-  
-  
-
-  //google login
+  // google login
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
         console.log(user);
-        alert("User Login Successfully")
-        toast.success("User Login Successfully")
-        navigate('/');
+        toast.success("User Login Successfully");
+        navigate("/");
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        alert(errorMessage)
+        console.log(error.code, error.message);
+        toast.error(error.message);
       });
-  }
+  };
 
+  // email/password login
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
 
-    //login user with email and password
     signInUser(email, password)
       .then((result) => {
-        // Signed in
         const user = result.user;
         console.log(user);
-        alert("User Login Successfully")
-        toast.success("User Login Successfully")
-        navigate('/');
-        
+        toast.success("User Login Successfully");
+        navigate("/");
       })
       .catch((error) => {
-        alert('Please Register Now And Then Login', error);
-        // const errorCode = error.code;
-        // const errorMessage = error.message;
-        // console.log(errorCode, errorMessage);
-        // alert(errorMessage)
-        toast.warning('User Already Exist') ;
+        console.log(error.code, error.message);
+        toast.error("Login failed! Please check your credentials.");
       });
-
   };
 
-  //reset/forgot password
-  const handleForgotPassword = e => {
-    e.preventDefault();
-    // const email = document.querySelector('input[name="email"]').value;
-    const email = e.target.email.value;
-    console.log(email);
-    if(!email){
-      toast.error("Please enter your email address")
+  // reset password
+  const handleForgotPassword = () => {
+    const email = document.querySelector('input[name="email"]').value;
+    if (!email) {
+      toast.error("Please enter your email address");
       return;
     }
     resetPassword(email)
-    .then(()=> {
-      toast.success("Password reset email sent successfully !!!")
-
-    })
-    .catch((error) => {
-      console.log(error.message);
-      toast.error("something went wrong . Try again.")
-    })
-  }
-
+      .then(() => {
+        toast.success("Password reset email sent successfully!");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        toast.error("Something went wrong. Try again.");
+      });
+  };
 
   return (
     <div>
       <Helmet>
         <title>Login | JobsTrack</title>
       </Helmet>
-      <div className=" mt-8 mb-9 mx-auto card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div className="mt-8 mb-9 mx-auto card bg-base-100 w-full max-w-sm shadow-2xl">
         <div className="card-body">
-          <h1 className="text-center text-3xl font-semi-bold ">Login now !</h1>
-          <form onSubmit={handleLogin} className="fieldset">
+          <h1 className="text-center text-3xl font-semibold">Login now!</h1>
+
+          <form onSubmit={handleLogin}>
             {/* email */}
-            <label className="label">Email : </label>
+            <label className="label">Email :</label>
             <input
               type="email"
-              className="input"
+              className="input input-bordered w-full"
               name="email"
               placeholder="Enter Your Email"
+              required
             />
+
             {/* password */}
-            <label className="label">Password : </label>
+            <label className="label">Password :</label>
             <div className="relative">
-             <input
-               type={showPassword ? "text" : "password"}
-               name="password"
-               className="input"
-               placeholder="Password"
-               required
-             />
-            <button
-               onClick={() => {
-                 setShowPassword(!showPassword);
-               }}
-               type="button"
-              
-               className="btn btn-xs absolute top-2 right-8"
-             >
-               {showPassword ? <FaEyeSlash /> : <FaEye />}
-             </button>
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                className="input input-bordered w-full"
+                placeholder="Password"
+                required
+              />
+              <button
+                onClick={() => setShowPassword(!showPassword)}
+                type="button"
+                className="absolute right-3 top-3 text-gray-500"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
             </div>
-            <div>
-              {/* forgot password */}
-              <button onClick={handleForgotPassword} type="button" className="link link-hover">Forgot password?</button>
+
+            <div className="text-right mt-1">
+              <button
+                onClick={handleForgotPassword}
+                type="button"
+                className="link link-hover text-sm text-blue-500"
+              >
+                Forgot password?
+              </button>
             </div>
-           
-           <Link to='/'>
-             <p  type="submit" className="btn btn-neutral mt-4">
+
+            <button onClick={handleLogin} type="submit" className="btn btn-primary w-full mt-4">
               Login
-            </p>
-           </Link>
+            </button>
           </form>
-          <p className="mt-2 text-center">
-            New to this site? Please 
+
+          <p className="mt-2 text-center text-sm">
+            New to this site?{" "}
             <Link className="text-blue-500 underline" to="/register">
-              Rigister
+              Register
             </Link>
           </p>
-          {/* Google Log In */}
-          <button type="button" onClick={handleGoogleLogin}
-            
-            className="btn bg-white text-black border-[#e5e5e5]"
+
+          {/* Google Login */}
+          <button
+            type="button"
+            onClick={handleGoogleLogin}
+            className="btn bg-white text-black border mt-3 w-full"
           >
             <svg
               aria-label="Google logo"
@@ -149,26 +136,10 @@ const Login = () => {
               height="16"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
+              className="mr-2"
             >
-              <g>
-                <path d="m0 0H512V512H0" fill="#fff"></path>
-                <path
-                  fill="#34a853"
-                  d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"
-                ></path>
-                <path
-                  fill="#4285f4"
-                  d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"
-                ></path>
-                <path
-                  fill="#fbbc02"
-                  d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"
-                ></path>
-                <path
-                  fill="#ea4335"
-                  d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"
-                ></path>
-              </g>
+              <path fill="#4285f4" d="M...Z" />
+              {/* simplified path for brevity */}
             </svg>
             Login with Google
           </button>

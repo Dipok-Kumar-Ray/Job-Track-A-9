@@ -8,7 +8,7 @@ const Footer = () => {
     <Helmet>
       <title> Footer | JobTrack</title>
     </Helmet>
-    <div className="text-center bg-gray-300 py-6">
+    <div className="text-center  py-6">
       <div className="flex flex-wrap justify-center gap-6 text-lg font-semibold mb-4">
         <NavLink to="/" className="link link-hover">
           Home
@@ -19,7 +19,7 @@ const Footer = () => {
         <NavLink to="/about" className="link link-hover">
           About
         </NavLink>
-        <NavLink to="/*" className="link link-hover">
+        <NavLink to="/" className="link link-hover">
           Privacy Policy
         </NavLink>
       </div>

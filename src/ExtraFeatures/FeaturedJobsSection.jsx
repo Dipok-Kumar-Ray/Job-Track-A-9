@@ -31,12 +31,12 @@ const FeaturedJobsSection = () => {
         <Helmet>
           <title>FeaturedJob | JobTrack</title>
         </Helmet>
-        <section className="py-12 bg-white">
+        <section className="py-12 ">
         <h2 className="text-3xl font-bold text-center mb-8"> Featured Jobs</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
           {jobs.map(job => (
-            <div key={job.id} className="p-6 rounded-lg shadow bg-gray-50 hover:shadow-md transition">
-              <h3 className="text-xl font-semibold mb-1">{job.title}</h3>
+            <div key={job.id} className="bg-orange-50 p-6 rounded-lg shadow hover:shadow-md transition">
+              <h3 className="text-blue-300 text-xl font-semibold mb-1">{job.title}</h3>
               <p className="text-sm text-gray-600">{job.company} # {job.location}</p>
               <p className="mt-2 text-gray-500">Experience: {job.experience}</p>
               <Link to={`/job/${job.id}`} className="text-blue-600 mt-3 inline-block">View Details </Link>
