@@ -1,15 +1,13 @@
-import React, { useContext, useState } from "react";
-import { Helmet } from "react-helmet";
-// import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Contexts/AuthContext";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-
   const { signInUser, googleLogin, resetPassword } = useContext(AuthContext);
 
   // google login
@@ -23,15 +21,23 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error.code, error.message);
-        toast.error(error.message);
+        toast.error(error.message || "Google login failed");
       });
   };
 
   // email/password login
   const handleLogin = (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+
+    // safer way to access values
+    const form = e.target;
+    const email = form.email?.value || "";
+    const password = form.password?.value || "";
+
+    if (!email || !password) {
+      toast.error("Please enter both email and password");
+      return;
+    }
 
     signInUser(email, password)
       .then((result) => {
@@ -48,18 +54,21 @@ const Login = () => {
 
   // reset password
   const handleForgotPassword = () => {
-    const email = document.querySelector('input[name="email"]').value;
+    const emailInput = document.querySelector('input[name="email"]');
+    const email = emailInput ? emailInput.value : "";
+
     if (!email) {
       toast.error("Please enter your email address");
       return;
     }
+
     resetPassword(email)
       .then(() => {
         toast.success("Password reset email sent successfully!");
       })
       .catch((error) => {
         console.log(error.message);
-        toast.error("Something went wrong. Try again.");
+        toast.error(error.message || "Something went wrong. Try again.");
       });
   };
 
@@ -112,7 +121,7 @@ const Login = () => {
               </button>
             </div>
 
-            <button onClick={handleLogin} type="submit" className="btn btn-primary w-full mt-4">
+            <button type="submit" className="btn btn-primary w-full mt-4">
               Login
             </button>
           </form>
@@ -128,7 +137,7 @@ const Login = () => {
           <button
             type="button"
             onClick={handleGoogleLogin}
-            className="btn bg-white text-black border mt-3 w-full"
+            className="btn bg-white text-black border mt-3 w-full flex items-center justify-center"
           >
             <svg
               aria-label="Google logo"
@@ -138,8 +147,22 @@ const Login = () => {
               viewBox="0 0 512 512"
               className="mr-2"
             >
-              <path fill="#4285f4" d="M...Z" />
-              {/* simplified path for brevity */}
+              <path
+                fill="#4285f4"
+                d="M488 261.8c0-17.4-1.6-34.1-4.8-50.4H256v95.5h135.7c-5.8 31.1-23.4 57.5-50 75.3v62.3h80.8c47.3-43.6 74.5-107.7 74.5-182.7z"
+              />
+              <path
+                fill="#34a853"
+                d="M256 492c67.7 0 124.7-22.5 166.3-61l-80.8-62.3c-22.5 15-51.4 23.7-85.5 23.7-65.8 0-121.5-44.5-141.4-104.5H31v65.7C72.4 444.4 157 492 256 492z"
+              />
+              <path
+                fill="#fbbc04"
+                d="M114.6 293.9c-4.9-14.5-7.7-30-7.7-45.9s2.8-31.4 7.7-45.9V136.4H31c-15.4 29.9-24.2 63.4-24.2 100.1s8.8 70.2 24.2 100.1l83.6-42.7z"
+              />
+              <path
+                fill="#ea4335"
+                d="M256 101.5c35.1 0 66.7 12 91.5 35.7l68.5-68.5C376.1 29 319.1 7 256 7 157 7 72.4 54.6 31 136.4l83.6 65.6c20-60 75.6-104.5 141.4-104.5z"
+              />
             </svg>
             Login with Google
           </button>

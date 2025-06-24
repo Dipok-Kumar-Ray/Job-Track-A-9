@@ -1,7 +1,7 @@
 Project Name : JobTrack
 
 
-Live link : 
+Live link : https://cute-basbousa-bab997.netlify.app/
 
 
 ## 🎯 Project Purpose
@@ -38,4 +38,4 @@ Package usage:
 
 
 DEVELOPED BY: DIPOK KUMAR RAY
-ROLE        : MERN STACK DEVELOPER
+ROLE        : Jr. MERN STACK DEVELOPER
