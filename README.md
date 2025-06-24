@@ -1,7 +1,7 @@
 Project Name : JobTrack
 
 
-Live link : https://cute-basbousa-bab997.netlify.app/
+Live link : https://earnest-custard-31853c.netlify.app/
 
 
 ## 🎯 Project Purpose
