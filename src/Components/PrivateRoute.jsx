@@ -4,7 +4,7 @@ import { Navigate } from 'react-router';
 
 const PrivateRoute = ({children}) => {
     const {user} = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     //active user to return children
     if(user && user?.email){
 
