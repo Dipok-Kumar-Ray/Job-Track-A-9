@@ -52,7 +52,7 @@ const Login = () => {
       });
   };
 
-  // reset password
+  // reset password input fields
   const handleForgotPassword = () => {
     const emailInput = document.querySelector('input[name="email"]');
     const email = emailInput ? emailInput.value : "";
